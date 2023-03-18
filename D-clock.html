@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Digital Clock</title>
+  </head>
+  <body>
+    <div id="Dclock"></div>
+    <p>Check out the time Neha😉</p>
+
+    <script type="text/javascript">
+      
+      function Time() {
+        const date = new Date();
+        var h = date.getHours();
+        var min = date.getMinutes();
+        var sec = date.getSeconds();
+        var ampm = "AM";
+
+        if (h === 0) {
+          h = 12; //12 hour format
+        }
+        if (h > 12) {
+          h = h - 12;
+          ampm = "PM";
+        }
+
+        // add 0
+        h = h < 10 ? "0" + h : h;
+        min = min < 10 ? "0" + min : min;
+        sec = sec < 10 ? "0" + sec : sec;
+
+        document.getElementById("Dclock").innerHTML =
+          h + ":" + min + ":" + sec + " " + ampm;
+        // to run the clock continusoly after 1 sec
+        setTimeout(Time, 500);
+      }
+
+      Time();
+    </script>
+  </body>
+</html>
