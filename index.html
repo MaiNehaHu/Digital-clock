@@ -2,15 +2,25 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Akaya+Telivigala&family=Bebas+Neue&family=Bungee+Shade&family=Caesar+Dressing&family=Flavors&family=Hanalei+Fill&family=Kumar+One+Outline&family=Metal+Mania&family=Monoton&family=Passero+One&family=Plaster&family=Righteous&family=Rubik+80s+Fade&family=Rubik+Burned&family=Rubik+Marker+Hatch&family=Sedgwick+Ave+Display&family=Zilla+Slab+Highlight&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./style.css" />
     <title>Digital Clock</title>
   </head>
   <body>
-    <div id="Dclock"></div>
+    <div id="Dclock">
+      <div id="time"></div>
+      <pre>  </pre>
+      <div id="ampm"></div>
+    </div>
     <p>Check out the time Neha😉</p>
 
     <script type="text/javascript">
-      
       function Time() {
         const date = new Date();
         var h = date.getHours();
@@ -31,9 +41,10 @@
         min = min < 10 ? "0" + min : min;
         sec = sec < 10 ? "0" + sec : sec;
 
-        document.getElementById("Dclock").innerHTML =
-          h + ":" + min + ":" + sec + " " + ampm;
+        document.getElementById("time").innerHTML =
+          h + ":" + min + ":" + sec + " ";
         // to run the clock continusoly after 1 sec
+        document.getElementById("ampm").innerHTML = " " + ampm;
         setTimeout(Time, 500);
       }
 
